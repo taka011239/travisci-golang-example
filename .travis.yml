@@ -11,3 +11,10 @@ before_install:
 script:
  - go test -v -covermode=count -coverprofile=profile.cov ./...
  - goveralls -coverprofile=profile.cov -service=travis-ci
+
+notifications:
+ hipchat:
+  rooms:
+   - secure: "LMOJ34p5+E9a5iGJWpJMF93gln0r0unIC8Erm762fqmk9aQmwoyzzuV+z9ovfdzK9DOPi8k3FRsW0ERxZxB+WMdX6x3UYHV0K/Vd1b33Xt6D11tJ+xr8erMNhHMdh3l2G4QB2EnHi0tflffbAjhBzVR4csO+whvqvtR68fDInpw="
+  template:
+   - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
