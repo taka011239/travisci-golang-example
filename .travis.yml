@@ -10,7 +10,7 @@ before_install:
 
 script:
  - go test -v -covermode=count -coverprofile=profile.cov ./...
- - goveralls -repotoken zkKTGi8800oqPK2QC4YWFRlotAaeeEeBb
+ - $HOME/gopath/bin/goveralls -repotoken zkKTGi8800oqPK2QC4YWFRlotAaeeEeBb
 
 notifications:
  hipchat:
