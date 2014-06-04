@@ -4,5 +4,10 @@ go:
  - 1.2.2
  - tip
 
+before_install:
+ - go get -d -v code.google.com/p/go.tools/cmd/cover
+ - go get -d -v github.com/mattn/goveralls
+
 script:
- - go test -v ./...
+ - go test -v -covermode=count -coverprofile=profile.cov ./...
+ - goveralls -coverprofile=profile.cov -service=travis-ci
